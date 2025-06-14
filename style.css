@@ -1,0 +1,37 @@
+/* Set a clean font and layout for the entire page */
+body {
+  font-family: Arial, sans-serif;   
+  margin: 30px;                     
+  background-color:#00FF00;        
+}
+
+/* Add space below the form so it doesn't touch other elements */
+form {
+  margin-bottom: 20px;              
+}
+
+/* Style the text input field */
+input {
+  padding: 8px;                     
+  font-size: 16px;                  
+}
+
+/* Style all buttons */
+button {
+  margin-left: 10px;               /* Add space between buttons and inputs */
+  padding: 8px 12px;               
+}
+
+/* Remove bullets and space from the list */
+ul {
+  list-style-type: none;           
+  padding: 0;                      
+}
+
+/* Style each guest list item */
+li {
+  background: white;              
+  margin: 10px 0;                 
+  padding: 10px;                  
+  border: 1px solid #ccc;      
+}
