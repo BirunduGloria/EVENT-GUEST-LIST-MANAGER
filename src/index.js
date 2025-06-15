@@ -71,13 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // RSVP button
     const rsvpBtn = document.createElement('button');
-    rsvpBtn.textContent = 'RSVP: Not Attending';
+    rsvpBtn.textContent = 'Not Attending';
     rsvpBtn.style.color = 'red';
     rsvpBtn.addEventListener('click', () => {
       const isAttending = rsvpBtn.textContent.includes('Not');
-      rsvpBtn.textContent = isAttending ? 'RSVP: Attending' : 'RSVP: Not Attending';
+      rsvpBtn.textContent = isAttending ? 'Attending' : 'Not Attending';
       rsvpBtn.style.color = isAttending ? 'green' : 'red';
-      console.log(`${name}'s RSVP updated: ${rsvpBtn.textContent}`);
+      console.log(`${name}'s ${rsvpBtn.textContent}`);
     });
     li.appendChild(rsvpBtn);
 
