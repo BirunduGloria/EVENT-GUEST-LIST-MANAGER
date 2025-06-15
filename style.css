@@ -5,24 +5,26 @@ body {
   background-color:#00FF00;        
 }
 
-/* Add space below the form so it doesn't touch other elements */
+h1{
+    color :0000;
+}
+
 form {
   margin-bottom: 20px;              
 }
 
-/* Style the text input field */
 input {
   padding: 8px;                     
-  font-size: 16px;                  
+  font-size: 16px; 
+  margin-right:10px;                 
 }
 
 /* Style all buttons */
 button {
-  margin-left: 10px;               /* Add space between buttons and inputs */
+  margin-left: 10px;
   padding: 8px 12px;               
 }
 
-/* Remove bullets and space from the list */
 ul {
   list-style-type: none;           
   padding: 0;                      
@@ -34,4 +36,27 @@ li {
   margin: 10px 0;                 
   padding: 10px;                  
   border: 1px solid #ccc;      
+}
+
+/* Category Tag Styles */
+.category {
+  margin-left: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.friend {
+  color: white;
+  background-color:red;
+}
+
+.family {
+  color: white;
+  background-color: blueviolet;
+}
+
+.colleague {
+  color: white;
+  background-color: purple;
 }

@@ -1,73 +1,93 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("JavaScript loaded.DOM is ready");
-  // Select elements from the DOM
+  console.log(" DOM is fully loaded");
+
+  // Grab form and input elements
   const form = document.getElementById('guest-form');
   const input = document.getElementById('guest-name');
+  const categorySelect = document.getElementById('guest-category');
   const guestList = document.getElementById('guest-list');
 
-  // Handle form submission
   form.addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent page from reloading (required for full marks)
+    e.preventDefault(); 
     console.log("Form submitted");
 
-    const name = input.value.trim(); // Get and trim input
-    console.log("user entered", name);
+    const name = input.value.trim();
+    const category = categorySelect.value;
 
-    if (name === '') {
-        console.log("No name entered. Skip");
-        return;
-    }
-     // Check the number of guests already in the list
-    console.log("Current number of guests:", guestList.children.length);
-
-
-    // Limit guest list to 10
-    if (guestList.children.length >= 10) {
-      alert('Maximum 10 guests allowed!');
-      console.log('Maximum number of guests exceeded');
+    // Validation
+    if (!name) {
+      alert("Please enter a guest name.");
+      console.log("Guest Name missing!.");
       return;
     }
 
-    // Create list item for new guest
+    if (!category) {
+      alert("Please select a guest category.");
+      console.log("Category not selected.");
+      return;
+    }
+
+    if (guestList.children.length >= 10) {
+      alert("Limit exceeded! Only 10 guests allowed.");
+      console.log("Guest limit reached.");
+      return;
+    }
+
+    // Create list item for guest
     const li = document.createElement('li');
-    console.log(`${name} was added to the list.`);
 
-
-    // Create a <span> to hold the guest name
+    // Guest name
     const nameSpan = document.createElement('span');
     nameSpan.textContent = name;
     li.appendChild(nameSpan);
 
-    //Create a remove button
+    // Category tag
+    const categoryTag = document.createElement('span');
+    categoryTag.textContent = ` (${category})`;
+    categoryTag.className = `category ${category.toLowerCase()}`;
+    li.appendChild(categoryTag);
+
+    // Edit button
+    const editBtn = document.createElement('button');
+    editBtn.textContent = 'Edit';
+    editBtn.addEventListener('click', () => {
+      const newName = prompt("Edit guest name:", nameSpan.textContent);
+      if (newName && newName.trim()) {
+        nameSpan.textContent = newName.trim();
+        console.log(`Name changed to: ${newName}`);
+      } else {
+        console.log(" Edit cancelled.");
+      }
+    });
+    li.appendChild(editBtn);
+
+    // Remove button
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove';
     removeBtn.addEventListener('click', () => {
-      guestList.removeChild(li); // Remove guest from list
-      console.log(`${name} was removed from the list.`);
+      guestList.removeChild(li);
+      console.log(`Guest removed: ${name}`);
     });
     li.appendChild(removeBtn);
 
-    // RSVP TOGGLE BUTTON 
+    // RSVP button
     const rsvpBtn = document.createElement('button');
     rsvpBtn.textContent = 'RSVP: Not Attending';
+    rsvpBtn.style.color = 'red';
     rsvpBtn.addEventListener('click', () => {
-      if (rsvpBtn.textContent.includes('Not')) {
-        rsvpBtn.textContent = 'RSVP: Attending';
-        rsvpBtn.style.color = 'green';
-      } else {
-        rsvpBtn.textContent = 'RSVP: Not Attending';
-        rsvpBtn.style.color = 'red';
-      }
-      console.log(`${name}'s RSVP status changed to: ${rsvpBtn.textContent}`);
+      const isAttending = rsvpBtn.textContent.includes('Not');
+      rsvpBtn.textContent = isAttending ? 'RSVP: Attending' : 'RSVP: Not Attending';
+      rsvpBtn.style.color = isAttending ? 'green' : 'red';
+      console.log(`${name}'s RSVP updated: ${rsvpBtn.textContent}`);
     });
     li.appendChild(rsvpBtn);
 
-
-    // Add <li> to the guest list
+    // Add guest to list
     guestList.appendChild(li);
-    console.log(`${name} was added to the list.`);
+    console.log(`Guest added: ${name} (${category})`);
 
-    // Clear input for the next guest
+    // Reset form
     input.value = '';
+    categorySelect.selectedIndex = 0;
   });
 });

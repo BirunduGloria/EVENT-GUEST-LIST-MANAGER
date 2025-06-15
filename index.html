@@ -6,16 +6,30 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Guest List</h1>
+  <h1>Event Guest List</h1>
 
-  <!-- Form to add guests -->
+  <!--Add guests to form-->
   <form id="guest-form">
-    <input type="text" id="guest-name" placeholder="Enter guest name" required />
-    <button type="submit">Add Guest</button>
-  </form>
+  <input 
+    type="text" 
+    id="guest-name" 
+    placeholder="Enter guest name" 
+    required 
+  />
 
-  <!-- Where guests will be listed -->
-  <ul id="guest-list"></ul>
+    <!-- Category Dropdown -->
+  <select id="guest-category" required>
+    <option value=""disabled selected>Select Category</option>
+    <option value="Friend">Friend</option>
+    <option value="Family">Family</option>
+    <option value="Colleague">Colleague</option>
+  </select>
+
+  <button type="submit">Add Guest</button>
+</form>
+
+<!--where guests will be listed-->
+<ul id="guest-list"></ul>
 
   <script src="src/index.js"></script>
 </body>
