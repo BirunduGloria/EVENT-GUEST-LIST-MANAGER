@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const categorySelect = document.getElementById('guest-category');
   const guestList = document.getElementById('guest-list');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault(); 
+  form.addEventListener('submit', function (event) {
+    event.preventDefault(); 
     console.log("Form submitted");
 
     const name = input.value.trim();
