@@ -7,7 +7,14 @@ body {
 }
 
 h1{
-    color :0000;
+    font-size: 2em;
+    color :black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2{
+    color:darkblue
 }
 
 form {
@@ -65,4 +72,34 @@ li {
 .colleague {
   color: white;
   background-color: purple;
+}
+
+.balloon-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let user click through */
+  overflow: hidden;
+  z-index: -1;
+}
+
+.balloon {
+  width: 30px;
+  height: 40px;
+  border-radius: 50% 50% 45% 45%;
+  position: absolute;
+  bottom: -60px;
+  animation: float 10s infinite ease-in;
+  opacity: 0.7;
+}
+
+.red { background: red; left: 20%; animation-delay: 0s; }
+.blue { background: skyblue; left: 50%; animation-delay: 2s; }
+.green { background: lightgreen; left: 80%; animation-delay: 4s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
 }
