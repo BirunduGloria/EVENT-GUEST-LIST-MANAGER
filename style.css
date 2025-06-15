@@ -2,7 +2,7 @@
 body {
   font-family: Arial, sans-serif;   
   margin: 30px;                     
-  background-color:green;  
+  background-color:lightseagreen;  
   line-height: 1.6;      
 }
 
@@ -103,3 +103,4 @@ li {
   0% { transform: translateY(0); }
   100% { transform: translateY(-120vh); }
 }
+
