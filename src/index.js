@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log(" DOM is fully loaded");
 
-  // Grab form and input elements
+  //input elements
   const form = document.getElementById('guest-form');
   const input = document.getElementById('guest-name');
   const categorySelect = document.getElementById('guest-category');
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = input.value.trim();
     const category = categorySelect.value;
 
-    // Validation
     if (!name) {
       alert("Please enter a guest name.");
       console.log("Guest Name missing!.");
