@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isAttending = rsvpBtn.textContent.includes('Not');
       rsvpBtn.textContent = isAttending ? 'Attending' : 'Not Attending';
       rsvpBtn.style.color = isAttending ? 'green' : 'red';
-      console.log(`${name}'s ${rsvpBtn.textContent}`);
+      console.log(`${name}'s RSVP updated: ${rsvpBtn.textContent}`);
     });
     li.appendChild(rsvpBtn);
 
